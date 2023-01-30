@@ -10,7 +10,7 @@ function Link(props) {
         if (id === null) {
             return url;
         }
-        return `/${url}/${id}`;
+        return `${url}/${id}`;
     }, [id]);
 
     return (
