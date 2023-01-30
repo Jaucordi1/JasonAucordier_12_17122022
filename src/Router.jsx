@@ -79,12 +79,17 @@ const router = createBrowserRouter([
                     if (!params.id || isNaN(id)) {
                         throw new Response("Erreur d'ID", {status: 500, statusText: "No ID"})
                     }
-                    return api.getUser(id);
+                    return api
+                        .getUser(id)
+                        .catch(error => Promise.reject(new Response(error.message, {
+                            status: 500,
+                            statusText: "Oops, une erreur est survenue!"
+                        })));
                 },
             },
             // Add other pages, here is an example, copying the landing page as "/login" route
             {
-                path: "/login", // Add "/id" at path end to make it private (for authenticated users)
+                path: ROUTE.LOGIN, // Add "/id" at path end to make it private (for authenticated users)
                 element: <LoginPage />,
             },
         ],
