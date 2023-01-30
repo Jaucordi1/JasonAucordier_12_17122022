@@ -1,7 +1,7 @@
 import Classes from "./ErrorPage.module.sass"
 import {useAsyncError, useRouteError} from "react-router-dom";
 
-const Error = () => {
+const ErrorPage = () => {
     const error = useRouteError();
     const loaderError = useAsyncError();
 
@@ -17,5 +17,6 @@ const Error = () => {
         </div>
     );
 };
+ErrorPage.propTypes = {};
 
-export default Error;
+export default ErrorPage;

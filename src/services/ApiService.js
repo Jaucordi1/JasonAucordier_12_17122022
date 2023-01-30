@@ -4,6 +4,7 @@ import {ApiMockService} from "./ApiMockService.js";
 export class ApiService {
 
     /**
+     * [PROD] ApiService
      * @param {Mapper} mapper
      */
     constructor(mapper) {

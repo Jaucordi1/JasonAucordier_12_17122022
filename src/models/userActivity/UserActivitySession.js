@@ -1,6 +1,7 @@
 export class UserActivitySession {
 
     /**
+     * UserActivitySession model constructor
      * @param {UserActivitySession} data
      */
     constructor(data) {

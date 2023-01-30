@@ -38,7 +38,8 @@ const HomePage = () => {
                     <div className={Classes.row}>
                         {!!userAverageSessions && (
                             <div className={Classes.sessions}>
-                                <SessionsAverageDuration data={userAverageSessions.sessions} className={Classes.square} />
+                                <SessionsAverageDuration data={userAverageSessions.sessions}
+                                                         className={Classes.square} />
                             </div>
                         )}
                         {!!userPerformance && (
@@ -63,5 +64,6 @@ const HomePage = () => {
         </main>
     );
 };
+HomePage.propTypes = {};
 
 export default HomePage;

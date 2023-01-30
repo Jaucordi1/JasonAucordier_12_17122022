@@ -1,9 +1,13 @@
-import Classes from "./Copyright.module.sass"
+import Classes from "./Copyright.module.sass";
 
-export function Copyright() {
+function Copyright() {
     return (
         <p className={Classes.copyright}>
             Copyright, SportSee 2020
         </p>
     );
 }
+
+Copyright.propTypes = {};
+
+export {Copyright};

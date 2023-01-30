@@ -20,6 +20,5 @@ export const Header = ({user, className}) => {
 };
 
 Header.propTypes = {
-    user: PropTypes.instanceOf(User).isRequired,
-    className: PropTypes.string,
+    user: PropTypes.instanceOf(User).isRequired, className: PropTypes.string,
 };

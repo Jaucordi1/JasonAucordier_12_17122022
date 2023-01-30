@@ -4,6 +4,7 @@
  */
 export class UserPerformance {
     /**
+     * UserPerformance model constructor
      * @param {UserPerformance} data
      */
     constructor(data) {
@@ -28,9 +29,11 @@ export class UserPerformance {
      * @returns {UserPerformanceData[]}
      */
     get data() {
-        return this._data.data.map(item => ({
-            kind: item.kind,
-            value: item.value,
-        }))
+        return this._data.data.map(item => (
+            {
+                kind: item.kind,
+                value: item.value,
+            }
+        ))
     }
 }

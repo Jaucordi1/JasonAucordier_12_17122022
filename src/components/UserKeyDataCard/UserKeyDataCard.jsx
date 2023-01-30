@@ -1,9 +1,9 @@
 import Classes from "./UserKeyDataCard.module.sass"
 import {UserKeyData} from "../../models/user/UserKeyData.js";
-import PropTypes from "prop-types";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
-export const UserKeyDataCard = (props) => {
+function UserKeyDataCard(props) {
     /**
      * @type {number} value
      */
@@ -24,7 +24,7 @@ export const UserKeyDataCard = (props) => {
             </div>
         </article>
     );
-};
+}
 
 UserKeyDataCard.propTypes = {
     className: PropTypes.string,
@@ -33,3 +33,5 @@ UserKeyDataCard.propTypes = {
     unit: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
 };
+
+export {UserKeyDataCard};

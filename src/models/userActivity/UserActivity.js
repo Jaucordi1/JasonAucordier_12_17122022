@@ -3,6 +3,7 @@ import {UserActivitySession} from "./UserActivitySession.js";
 export class UserActivity {
 
     /**
+     * UserActivity model constructor
      * @param {UserActivity} data
      */
     constructor(data) {

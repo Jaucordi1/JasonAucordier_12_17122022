@@ -2,7 +2,7 @@ import Classes from "./Navbar.module.sass"
 import {Container} from "../Container/Container.jsx";
 import {Link} from "../Link/Link.jsx";
 
-export function Navbar() {
+function Navbar() {
     return (
         <div className={Classes.navbar}>
             <img src="/logo.svg" alt="Logo" height="100%" />
@@ -15,3 +15,7 @@ export function Navbar() {
         </div>
     );
 }
+
+Navbar.propTypes = {};
+
+export {Navbar};

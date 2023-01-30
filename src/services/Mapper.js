@@ -6,6 +6,7 @@ import {UserPerformance} from "../models/userPerformance/UserPerformance.js";
 class Mapper {
 
     /**
+     * Map User model data
      * @param {User} data
      * @returns {User}
      */
@@ -14,6 +15,7 @@ class Mapper {
     }
 
     /**
+     * Map UserActivity model data
      * @param {UserActivity} data
      * @returns {UserActivity}
      */
@@ -22,6 +24,7 @@ class Mapper {
     }
 
     /**
+     * Map UserAverageSession model data
      * @param {UserAverageSessions} data
      * @returns {UserAverageSessions}
      */
@@ -30,6 +33,7 @@ class Mapper {
     }
 
     /**
+     * Map UserPerformance model data
      * @param {UserPerformance} data
      * @returns {UserPerformance}
      */
@@ -39,4 +43,5 @@ class Mapper {
 
 }
 
+// Better manage this with Dependency Injection!
 export const mapper = new Mapper();

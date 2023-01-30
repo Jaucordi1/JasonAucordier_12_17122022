@@ -1,6 +1,7 @@
 export class UserKeyData {
 
     /**
+     * UserKeyData model constructor
      * @param {UserKeyData} data
      */
     constructor(data) {

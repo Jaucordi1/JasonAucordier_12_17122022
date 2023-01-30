@@ -1,6 +1,7 @@
 export class UserInformation {
 
     /**
+     * UserInformation model constructor
      * @param {UserInformation} data
      */
     constructor(data) {

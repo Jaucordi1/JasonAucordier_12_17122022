@@ -3,7 +3,7 @@ import {NavLink, useParams} from "react-router-dom";
 import classnames from "classnames";
 import {useCallback} from "react";
 
-export function Link(props) {
+function Link(props) {
     const {id = null} = useParams();
     const {to, className = undefined, children = null, ...otherProps} = props;
     const getUrl = useCallback((url) => {
@@ -21,3 +21,5 @@ export function Link(props) {
 }
 
 Link.propTypes = NavLink.propTypes;
+
+export {Link};

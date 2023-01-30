@@ -1,8 +1,8 @@
 import Classes from "./UserPerformance.module.sass"
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Text} from "recharts";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import {useMemo} from "react";
-import classNames from "classnames";
 
 const translatedKinds = {
     "cardio": "Cardio",
@@ -13,12 +13,7 @@ const translatedKinds = {
     "intensity": "Intensité",
 };
 
-/**
- * @param {{data: UserPerformance}} props
- * @returns {JSX.Element}
- * @constructor
- */
-export function UserPerformanceChart(props) {
+function UserPerformanceChart(props) {
     const data = useMemo(() => [...props.data.data].reverse(), [props.data.data]);
     console.debug("Data :", data);
     return (
@@ -41,3 +36,5 @@ export function UserPerformanceChart(props) {
 UserPerformanceChart.propTypes = {
     className: PropTypes.string,
 };
+
+export {UserPerformanceChart};

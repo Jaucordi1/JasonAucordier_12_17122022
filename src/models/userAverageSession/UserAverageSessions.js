@@ -4,6 +4,7 @@
 export class UserAverageSessions {
 
     /**
+     * UserAverageSession model constructor
      * @param {UserAverageSessions} data
      */
     constructor(data) {

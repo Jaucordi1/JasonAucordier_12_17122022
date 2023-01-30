@@ -29,35 +29,21 @@ const CustomLabel = ({viewBox, todayScore = 0}) => {
     );
 };
 
-/**
- * @param {{data: User}} props
- * @constructor
- */
-export const UserScoreChart = (props) => {
-    const data = useMemo(() => [
-        {
-            name: "Score",
-            value: props.data.todayScore,
-            // value: 1,
-        },
-        {
-            name: "no value",
-            value: 1 - props.data.todayScore,
-            // value: 1 - 1,
-            fill: "transparent",
-        }
-    ], [props.data]);
-    const bgData = [
-        {
-            name: "Score",
-            value: 1
-        },
-    ];
+function UserScoreChart(props) {
+    const data = useMemo(() => [{
+        name: "Score", value: props.data.todayScore, // value: 1,
+    }, {
+        name: "no value", value: 1 - props.data.todayScore, // value: 1 - 1,
+        fill: "transparent",
+    }], [props.data]);
+    const bgData = [{
+        name: "Score", value: 1
+    },];
 
     return (
         <ResponsiveContainer width="100%" height="100%" className={classnames(Classes.container, props.className)}>
             <PieChart className={Classes.chart}>
-                <Customized component={(props) => (
+                <Customized component={(_props) => (
                     <Text fontSize={14} lineHeight={14}
                           x={20} y={20}
                           style={{fill: "#20253A", fontWeight: 600}}
@@ -79,8 +65,10 @@ export const UserScoreChart = (props) => {
             </PieChart>
         </ResponsiveContainer>
     );
-};
+}
 
 UserScoreChart.propTypes = {
     className: PropTypes.string,
 };
+
+export {UserScoreChart};

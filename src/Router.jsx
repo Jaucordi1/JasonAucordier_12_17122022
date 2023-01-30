@@ -2,11 +2,13 @@ import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import {Layout} from "./components/Layout/Layout.jsx";
 import ErrorPage from "./pages/Error/ErrorPage";
 import {api} from "./services/ApiService.js";
-import {Suspense, lazy} from "react";
+import {lazy, Suspense} from "react";
 
+// App pages lazy-loading
 const HomePage = lazy(() => import("./pages/Home/HomePage.jsx"));
 const LoginPage = lazy(() => import("./pages/Auth/LoginPage.jsx"));
 
+// App routes helper
 export const ROUTE = {
     HOME: "/",
     LOGIN: "/login",
@@ -16,12 +18,23 @@ export const ROUTE = {
     COMMUNITY: "/community",
 };
 
+/**
+ * Component displaying a loader
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const LoadingRoute = () => {
     return (
         <div>Chargement de la page…</div>
     );
 };
 
+/**
+ * Integrating actual react-router route element inside the App layout.
+ * Display LoadingComponent in Suspense React API.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const RootRoute = () => {
     return (
         <Layout>
@@ -31,6 +44,13 @@ const RootRoute = () => {
         </Layout>
     )
 };
+
+/**
+ * Integrating error page inside the App layout.
+ * Display LoadingComponent in Suspense React API.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ErrorRoute = () => {
     return (
         <Layout>
@@ -71,6 +91,11 @@ const router = createBrowserRouter([
     }
 ]);
 
+/**
+ * The fully configured routing component !
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Router = () => <RouterProvider router={router} fallbackElement={<LoadingRoute />} />
 
 export default Router;

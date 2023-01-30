@@ -2,7 +2,7 @@ import Classes from "./Sidebar.module.sass"
 import {Copyright} from "../Copyright/Copyright.jsx";
 import {NavLink} from "react-router-dom";
 
-export function Sidebar() {
+function Sidebar() {
     return (
         <div className={Classes.sidebar}>
             <div className={Classes.links}>
@@ -23,3 +23,7 @@ export function Sidebar() {
         </div>
     );
 }
+
+Sidebar.propTypes = {};
+
+export {Sidebar};

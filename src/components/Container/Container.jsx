@@ -1,8 +1,8 @@
-import Classes from "./Container.module.sass"
-import PropTypes from "prop-types";
+import Classes from "./Container.module.sass";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
-export function Container(props) {
+function Container(props) {
     return (
         <div className={classnames(Classes.container, props.className)}>
             {props.children}
@@ -11,6 +11,7 @@ export function Container(props) {
 }
 
 Container.propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
+    children: PropTypes.node.isRequired, className: PropTypes.string,
 };
+
+export {Container};

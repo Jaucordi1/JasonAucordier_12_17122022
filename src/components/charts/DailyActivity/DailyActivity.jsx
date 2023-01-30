@@ -1,15 +1,15 @@
 import Classes from "./DailyActivity.module.sass"
 import {
-    BarChart,
-    Legend,
     Bar,
-    ResponsiveContainer,
-    XAxis,
-    YAxis,
-    Tooltip,
-    Text,
+    BarChart,
+    CartesianGrid,
     Customized,
-    CartesianGrid
+    Legend,
+    ResponsiveContainer,
+    Text,
+    Tooltip,
+    XAxis,
+    YAxis
 } from "recharts"
 import {UserActivity} from "../../../models/userActivity/UserActivity.js";
 import classnames from "classnames";
@@ -26,11 +26,11 @@ function shortActivityName(name) {
     }
 }
 
-export function DailyActivity(props) {
+function DailyActivity(props) {
     return (
         <ResponsiveContainer width="100%" height="100%" className={classnames(Classes.container, props.className)}>
             <BarChart data={props.data.sessions} barGap={8} margin={{left: 30, right: 0, top: 20, bottom: 0}}>
-                <Customized component={(props) => (
+                <Customized component={(_props) => (
                     <Text fontSize={14} lineHeight={14} x={20} y={30}
                           style={{fill: "#20253A", fontWeight: 600}}
                           textAnchor="start" verticalAnchor="end">
@@ -61,7 +61,7 @@ export function DailyActivity(props) {
                 <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
                 <Tooltip labelStyle={{display: "none"}}
                          separator=""
-                         formatter={(value, name, item) => {
+                         formatter={(value, name, _item) => {
                              return [`${value}${shortActivityName(name)}`, ""];
                          }}
                          wrapperStyle={{
@@ -95,3 +95,5 @@ DailyActivity.propTypes = {
     className: PropTypes.string,
     data: PropTypes.instanceOf(UserActivity),
 };
+
+export {DailyActivity};

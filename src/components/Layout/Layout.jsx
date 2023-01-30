@@ -1,10 +1,10 @@
 import Classes from "./Layout.module.sass";
-import {Navbar} from "../Navbar/Navbar.jsx";
-import {Sidebar} from "../Sidebar/Sidebar.jsx";
 import {Container} from "../Container/Container.jsx";
+import {Sidebar} from "../Sidebar/Sidebar.jsx";
+import {Navbar} from "../Navbar/Navbar.jsx";
 import PropTypes from "prop-types";
 
-export function Layout(props) {
+function Layout(props) {
     return (
         <div className={Classes.layout}>
             <Navbar />
@@ -21,3 +21,5 @@ export function Layout(props) {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
 };
+
+export {Layout};

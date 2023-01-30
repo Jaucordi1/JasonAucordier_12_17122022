@@ -14,7 +14,6 @@ const LoginPage = () => {
         </main>
     );
 }
-
 LoginPage.propTypes = {};
 
 export default LoginPage;

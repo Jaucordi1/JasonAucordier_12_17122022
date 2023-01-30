@@ -4,6 +4,7 @@ import {UserKeyData} from "./UserKeyData.js";
 export class User {
 
     /**
+     * User model constructor
      * @param {User} data
      */
     constructor(data) {

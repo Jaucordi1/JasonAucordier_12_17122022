@@ -1,6 +1,7 @@
 export class ApiMockService {
 
     /**
+     * [MOCK] ApiService
      * @param {Mapper} mapper
      */
     constructor(mapper) {
@@ -15,7 +16,7 @@ export class ApiMockService {
      * @private
      */
     async _endpoint(endpoint) {
-        const module = await import(this._baseUrl);
+        const module = await import("../mocks/api");
         return {
             data: module.USER_MAIN_DATA,
             activities: module.USER_ACTIVITY,
@@ -29,7 +30,9 @@ export class ApiMockService {
      * @returns {Promise<User>}
      */
     async getUser(userID) {
-        const data = (await this._endpoint()).data.find(user => user.id === userID);
+        const data = (
+            await this._endpoint()
+        ).data.find(user => user.id === userID);
         return this._mapper.mapUser(data);
     }
 
@@ -38,7 +41,9 @@ export class ApiMockService {
      * @returns {Promise<UserActivity>}
      */
     async getUserActivity(userID) {
-        const data = (await this._endpoint()).activities.find(activity => activity.userId === userID);
+        const data = (
+            await this._endpoint()
+        ).activities.find(activity => activity.userId === userID);
         return this._mapper.mapUserActivity(data);
     }
 
@@ -47,7 +52,9 @@ export class ApiMockService {
      * @returns {Promise<UserAverageSessions>}
      */
     async getUserAverageSessions(userID) {
-        const data = (await this._endpoint()).averageSessions.find(averageSessions => averageSessions.userId === userID);
+        const data = (
+            await this._endpoint()
+        ).averageSessions.find(averageSessions => averageSessions.userId === userID);
         return this._mapper.mapUserAverageSessions(data);
     }
 
@@ -56,7 +63,9 @@ export class ApiMockService {
      * @returns {Promise<UserPerformance>}
      */
     async getUserPerformance(userID) {
-        const data = (await this._endpoint()).performances.find(performances => performances.userId === userID);
+        const data = (
+            await this._endpoint()
+        ).performances.find(performances => performances.userId === userID);
         return this._mapper.mapUserPerformance(data);
     }
 

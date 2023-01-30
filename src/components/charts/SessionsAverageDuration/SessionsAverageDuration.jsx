@@ -1,38 +1,34 @@
 import Classes from "./SessionsAverageDuration.module.sass"
-import {
-    CartesianGrid,
-    Customized,
-    Line,
-    LineChart,
-    ReferenceArea,
-    ResponsiveContainer,
-    Text,
-    Tooltip,
-    XAxis,
-    YAxis
-} from "recharts";
+import {Customized, Line, LineChart, ReferenceArea, ResponsiveContainer, Text, Tooltip, XAxis, YAxis} from "recharts";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import {useState} from "react";
 
 const SESSION_DAYS = ["L", "M", "M", "J", "V", "S", "D"];
 
-export function SessionsAverageDuration(props) {
-    const formatedData = props.data.map(session => ({
-        day: SESSION_DAYS[session.day - 1],
-        sessionLength: session.sessionLength,
-    }));
+function SessionsAverageDuration(props) {
     const [activeIndex, setActiveIndex] = useState();
-    const [activePercent, setActivePercent] = useState(0);
+    const [_activePercent, setActivePercent] = useState(0);
 
-    const onMouseMove = (mouseInfo, event) => {
+    const onMouseMove = (mouseInfo) => {
         setActiveIndex(mouseInfo.activeTooltipIndex);
-        const percentage = 100 - (((props.data.length - (mouseInfo.activeTooltipIndex || 0) - 1) * 100) / (props.data.length - 1));
+        const percentage = 100 - (
+            (
+                (
+                    props.data.length - (
+                        mouseInfo.activeTooltipIndex || 0
+                    ) - 1
+                ) * 100
+            ) / (
+                props.data.length - 1
+            )
+        );
         setActivePercent(percentage);
     }
 
     return (
-        <ResponsiveContainer aspect={1} width="100%" height="100%" className={classnames(Classes.container, props.className)}>
+        <ResponsiveContainer aspect={1} width="100%" height="100%"
+                             className={classnames(Classes.container, props.className)}>
             <LineChart data={props.data} onMouseMove={onMouseMove} className={Classes.chart}>
                 <defs>
                     <linearGradient id="colorUv" x1="0%" y1="0" x2="100%" y2="0">
@@ -44,7 +40,8 @@ export function SessionsAverageDuration(props) {
                        axisLine={false} tickLine={false} scale="time" mirror
                        tickMargin={8}
                        tickFormatter={(tick) => SESSION_DAYS[tick - 1]} />
-                <YAxis hide domain={[-50, 100]} orientation="right" tickLine={false} axisLine={false} tickCount={0} allowDataOverflow={false} />
+                <YAxis hide domain={[-40, 100]} orientation="right" tickLine={false} axisLine={false} tickCount={0}
+                       allowDataOverflow={false} />
                 <Tooltip labelFormatter={(index, items) => {
                     if (items.length === 0) {
                         return "";
@@ -87,8 +84,10 @@ export function SessionsAverageDuration(props) {
 const AverageSession = PropTypes.shape({
     day: PropTypes.number,
     sessionLength: PropTypes.number,
-})
+});
 SessionsAverageDuration.propTypes = {
     className: PropTypes.string,
     data: PropTypes.arrayOf(AverageSession),
 };
+
+export {SessionsAverageDuration};
